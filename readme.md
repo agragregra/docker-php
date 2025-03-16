@@ -45,12 +45,12 @@ docker up:
 docker-compose up -d
 ```
 
-remove all images:
-```
-docker image prune -a -f
-```
-
 docker down & remove db:
 ```
 docker-compose down && sudo rm -rf ./data
+```
+
+remove all images:
+```
+docker image prune -a -f
 ```
