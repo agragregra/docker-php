@@ -11,7 +11,7 @@ git clone https://github.com/agragregra/dpmp .; rm -rf trunk readme.md .gitignor
 - **PHP**: Latest PHP version.
 - **MySQL**: latest MySQL version.
 - **DB**: MySQLi & PDO.
-- **phpMyAdmin**: latest version.
+- **phpMyAdmin**: latest version. login: root / root.
 
 ## Troubleshooting NTFS /mnt Issues
 
