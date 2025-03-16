@@ -37,3 +37,14 @@ wsl --shutdown
 ```
 
 Note: This configuration ensures proper metadata handling and sets a umask of 0022 to align file permissions with WSL2 and MySQL requirements. After restarting, re-run your Docker Compose setup to verify the fix
+
+## Service
+
+docker up:
+```docker-compose up -d```
+
+remove all images:
+```docker image prune -a -f```
+
+docker down & remove db:
+```docker-compose down && sudo rm -rf ./data```
