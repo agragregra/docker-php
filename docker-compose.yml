@@ -1,0 +1,25 @@
+services:
+  db:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: example
+    volumes:
+      - ./data:/docker-entrypoint-initdb.d
+    ports:
+      - 3306:3306
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    environment:
+      PMA_HOST: db
+    ports:
+      - 8080:80
+
+  web:
+    image: php:apache
+    volumes:
+      - ./www:/var/www/html
+    ports:
+      - 8000:80
+    command: bash -c "docker-php-ext-install mysqli && apache2-foreground"
