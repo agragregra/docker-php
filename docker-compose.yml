@@ -18,8 +18,10 @@ services:
 
   web:
     image: php:apache
+    environment:
+      ext: mysqli pdo_mysql
     volumes:
       - ./www:/var/www/html
     ports:
       - 8000:80
-    command: bash -c "docker-php-ext-install mysqli && apache2-foreground"
+    command: bash -c "docker-php-ext-install $$ext && apache2-foreground"
