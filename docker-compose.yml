@@ -15,8 +15,6 @@ services:
       PMA_HOST: db
     ports:
       - 8080:80
-    depends_on:
-      - db
 
   web:
     image: php:apache
@@ -27,5 +25,3 @@ services:
     ports:
       - 8000:80
     command: bash -c "docker-php-ext-install $$ext && apache2-foreground"
-    depends_on:
-      - db
