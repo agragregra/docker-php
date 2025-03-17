@@ -41,22 +41,17 @@ Note: This configuration ensures proper metadata handling and sets a umask of 00
 
 ## Service
 
-1. build:
-```
-docker-compose build
-```
-
-2. docker up:
+1. docker up:
 ```
 docker-compose up -d
 ```
 
-3. docker down & remove db:
+2. docker down & remove db:
 ```
 docker-compose down && sudo rm -rf ./data
 ```
 
-4. remove all images & volumes:
+3. remove all images & volumes:
 ```
 docker system prune -a --volumes
 ```
