@@ -8,10 +8,10 @@ git clone https://github.com/agragregra/dpmp .; rm -rf trunk readme.md .gitignor
 
 ## Features
 
-- **PHP**: Latest PHP version.
-- **MySQL**: latest MySQL version.
+- **PHP**: Stable PHP version.
+- **MySQL**: Stable MySQL version.
 - **DB**: MySQLi & PDO.
-- **phpMyAdmin**: latest version, login: root / root.
+- **phpMyAdmin**: Stable version, login: root / root.
 
 ## Troubleshooting NTFS /mnt Issues
 
@@ -30,9 +30,10 @@ sudo nano /etc/wsl.conf
 options = "metadata,umask=0022"
 ```
 
-3. Save the file and exit, then restart WSL:
+3. Save the file and exit (Ctrl + X, Y, Enter), then restart WSL:
 
 ```
+logout
 wsl --shutdown
 ```
 
@@ -40,17 +41,22 @@ Note: This configuration ensures proper metadata handling and sets a umask of 00
 
 ## Service
 
-docker up:
+1. build:
+```
+docker-compose build
+```
+
+2. docker up:
 ```
 docker-compose up -d
 ```
 
-docker down & remove db:
+3. docker down & remove db:
 ```
 docker-compose down && sudo rm -rf ./data
 ```
 
-remove all images:
+4. remove all images & volumes:
 ```
-docker image prune -a -f
+docker system prune -a --volumes
 ```
