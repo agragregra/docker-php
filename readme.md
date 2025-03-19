@@ -31,6 +31,7 @@ sudo chmod -R 777 www && docker-compose up -d
 2. internal bash:
 ```
 docker-compose exec web bash
+exit
 ```
 
 3. export db
