@@ -8,11 +8,6 @@ services:
       - ./data:/var/lib/mysql
     ports:
       - 3306:3306
-    command:
-      - --socket=/tmp/mysql.sock
-      - --character-set-server=utf8
-      # - --collation-server=utf8_general_ci
-      # - --default-authentication-plugin=mysql_native_password
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:5.2.1
