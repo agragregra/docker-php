@@ -11,6 +11,7 @@ git clone https://github.com/agragregra/dpmp .; rm -rf trunk .gitignore .git
 - **MySQL**: Stable MySQL version.
 - **DB**: MySQLi & PDO.
 - **phpMyAdmin**: Stable version, login: root / root.
+- **composer**: Composer installed.
 
 ## Server
   Files: www
