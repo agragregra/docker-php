@@ -18,9 +18,7 @@ services:
 
   web:
     build:
-      context: .
-      args:
-        PHP_VERSION: 8.0
+      args: { PHP: 8.2 }
     volumes:
       - ./www:/var/www/html
     ports:
