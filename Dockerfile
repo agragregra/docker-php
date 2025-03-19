@@ -1,4 +1,4 @@
-ARG PHP=8.0
+ARG PHP
 FROM php:${PHP}-apache
 
 ENV EXT="mysqli pdo_mysql zip gd"
