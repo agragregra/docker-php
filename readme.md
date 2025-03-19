@@ -37,12 +37,12 @@ exit
 
 * export db
 ```
-docker-compose exec db mysqldump -u root -proot opencart > backup.sql
+docker-compose exec db mysqldump -u root -proot example > backup.sql
 ```
 
 * import db
 ```
-docker-compose exec -T db mysql -u root -proot opencart < backup.sql
+docker-compose exec -T db mysql -u root -proot example < backup.sql
 ```
 
 * remove all images & volumes:
