@@ -3,7 +3,7 @@ A lightweight Docker Compose setup for running a PHP application with MySQL (MyS
 
 ## Clone
 ```
-git clone https://github.com/agragregra/dpmp .; rm -rf trunk readme.md .gitignore .git
+git clone https://github.com/agragregra/dpmp .; rm -rf trunk .gitignore .git
 ```
 
 ## Features
