@@ -19,7 +19,7 @@ git clone https://github.com/agragregra/dpmp .; rm -rf trunk .gitignore .git
 
 ## Service
 
-1. docker up / down:
+* docker up / down:
 ```
 docker-compose up -d
 docker-compose down
