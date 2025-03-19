@@ -28,17 +28,22 @@ docker-compose down
 sudo chmod -R 777 www && docker-compose up -d
 ```
 
-2. export db
+2. internal bash:
+```
+docker-compose exec web bash
+```
+
+3. export db
 ```
 docker-compose exec db mysqldump -u root -proot opencart > backup.sql
 ```
 
-3. import db
+4. import db
 ```
 docker-compose exec -T db mysql -u root -proot opencart < backup.sql
 ```
 
-4. remove all images & volumes:
+5. remove all images & volumes:
 ```
 docker system prune -a --volumes
 ```
