@@ -22,11 +22,11 @@ git clone https://github.com/agragregra/dpmp .; rm -rf trunk .gitignore .git
 
 * docker up / down:
 ```
-docker-compose up -d
-docker-compose down
-
 # first
 sudo chmod -R 777 www && docker-compose up -d
+
+docker-compose up -d
+docker-compose down
 ```
 
 * internal bash:

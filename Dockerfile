@@ -6,6 +6,7 @@ ENV EXT="mysqli pdo_mysql zip gd mbstring opcache"
 RUN apt-get update && apt-get install -y \
     unzip \
     libzip-dev \
+    libonig-dev \
     libfreetype-dev \
     libjpeg-dev \
     libpng-dev \
