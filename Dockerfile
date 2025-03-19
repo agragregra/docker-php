@@ -1,7 +1,7 @@
 ARG PHP
 FROM php:${PHP}-apache
 
-ENV EXT="mysqli pdo_mysql zip gd"
+ENV EXT="mysqli pdo_mysql zip gd mbstring opcache"
 
 RUN apt-get update && apt-get install -y \
     unzip \
