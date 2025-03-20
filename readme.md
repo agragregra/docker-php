@@ -47,7 +47,7 @@ docker-compose exec -T db mysql -u root -proot example < backup.sql
 
 * remove all images & volumes:
 ```
-docker system prune -a --volumes
+docker system prune -af --volumes
 ```
 
 ## Troubleshooting NTFS /mnt Issues

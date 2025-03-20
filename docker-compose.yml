@@ -23,5 +23,6 @@ services:
       args: { PHP: 8.2 }
     volumes:
       - ./www:/var/www/html
+      - ./system/:/root/
     ports:
       - 8000:80
