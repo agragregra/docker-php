@@ -10,13 +10,13 @@ git clone https://github.com/agragregra/dpmp .; rm -rf trunk .gitignore .git
 - **PHP**: Stable PHP version.
 - **MySQL**: Stable MySQL version.
 - **DB**: MySQLi & PDO.
-- **phpMyAdmin**: Stable version, login: root / root.
+- **phpMyAdmin**: Stable version.
 - **Composer**.
 
 ## Server
   Files: www
   Host: http://localhost:8000
-  phpMyAdmin: http://localhost:8080
+  phpMyAdmin: http://localhost:8080 (root:root & user:user)
 
 ## Service
 
