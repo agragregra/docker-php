@@ -14,9 +14,9 @@ git clone https://github.com/agragregra/dphp .; rm -rf trunk .gitignore .git
 - **Composer**.
 
 ## Server
-  Files: www
-  Host: http://localhost:8000
-  phpMyAdmin: http://localhost:8080 (root:root & user:user)
+  - Files: www
+  - Host: http://localhost:8000
+  - phpMyAdmin: http://localhost:8080 (root:root & user:user)
 
 ## Service
 
