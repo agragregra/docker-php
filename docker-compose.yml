@@ -1,4 +1,13 @@
 services:
+  web:
+    build:
+      args: { PHP: 8.2 }
+    volumes:
+      - ./www:/var/www/html
+      - ./system/:/root/
+    ports:
+      - 8000:80
+
   db:
     image: mysql:8.0
     environment:
@@ -17,12 +26,3 @@ services:
       PMA_HOST: db
     ports:
       - 8080:80
-
-  web:
-    build:
-      args: { PHP: 8.2 }
-    volumes:
-      - ./www:/var/www/html
-      - ./system/:/root/
-    ports:
-      - 8000:80
