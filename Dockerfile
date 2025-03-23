@@ -1,5 +1,4 @@
-ARG PHP
-FROM php:${PHP}-apache
+FROM php:8.2-apache
 
 ENV EXT="mysqli pdo_mysql zip gd mbstring opcache"
 
