@@ -1,6 +1,6 @@
 FROM php:8.2-apache
 
-ENV EXT="mysqli pdo_mysql zip gd mbstring opcache"
+ENV EXT="mysqli pdo_mysql zip gd mbstring opcache intl"
 
 RUN apt-get update && apt-get install -y \
     nano \
@@ -13,6 +13,8 @@ RUN apt-get update && apt-get install -y \
     libjpeg-dev \
     libpng-dev \
     libwebp-dev \
+    libicu-dev \
+  && docker-php-ext-configure intl \
   && docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp \
   && docker-php-ext-install -j$(nproc) ${EXT} \
   && a2enmod rewrite \
