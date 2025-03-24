@@ -35,13 +35,22 @@ check_deps() {
   fi
 }
 
+# Function to remove mysql socket if it exists
+remove_mysql_socket() {
+  if [ -L "$(pwd)/data/mysql.sock" ]; then
+    sudo rm "$(pwd)/data/mysql.sock"
+  fi
+}
+
 up() {
+  remove_mysql_socket
   check_deps "docker-compose"
   sudo chmod -R 777 .
   docker-compose up -d
 }
 
 down() {
+  remove_mysql_socket
   check_deps "docker-compose"
   docker-compose down
 }
@@ -66,18 +75,14 @@ backup() {
   check_deps "7z"
   local dir_name=$(get_dir_name)
   local current_date=$(get_current_date)
+  remove_mysql_socket
   sudo chmod -R 777 .
-  if [ -L "$(pwd)/data/mysql.sock" ]; then
-      sudo rm "$(pwd)/data/mysql.sock"
-  fi
   sudo 7z a $backup_compression_options -x!$dir_name/node_modules ./$dir_name-$current_date.7z $(pwd)
 }
 
 clear() {
+  remove_mysql_socket
   sudo chmod -R 777 .
-  if [ -L "$(pwd)/data/mysql.sock" ]; then
-      sudo rm "$(pwd)/data/mysql.sock"
-  fi
 }
 
 # Handle arguments
