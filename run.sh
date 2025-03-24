@@ -42,16 +42,21 @@ remove_mysql_socket() {
   fi
 }
 
-up() {
-  remove_mysql_socket
-  check_deps "docker-compose"
+unlock_all() {
   sudo chmod -R 777 .
+}
+
+up() {
+  check_deps "docker-compose"
+  unlock_all
+  remove_mysql_socket
   docker-compose up -d
 }
 
 down() {
-  remove_mysql_socket
   check_deps "docker-compose"
+  unlock_all
+  remove_mysql_socket
   docker-compose down
 }
 
@@ -75,14 +80,14 @@ backup() {
   check_deps "7z"
   local dir_name=$(get_dir_name)
   local current_date=$(get_current_date)
+  unlock_all
   remove_mysql_socket
-  sudo chmod -R 777 .
   sudo 7z a $backup_compression_options -x!$dir_name/node_modules ./$dir_name-$current_date.7z $(pwd)
 }
 
 clear() {
+  unlock_all
   remove_mysql_socket
-  sudo chmod -R 777 .
 }
 
 # Handle arguments
