@@ -1,6 +1,7 @@
 services:
   db:
-    image: mysql:8.0
+    # image: mysql:8.0
+    image: mariadb:11.4
     environment:
       MYSQL_USER: user
       MYSQL_PASSWORD: user
