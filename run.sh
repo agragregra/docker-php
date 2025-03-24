@@ -5,7 +5,7 @@ set -e  # Exit on error
 
 # Configuration variables
 output_dir="www/"
-deploy_server="user@server.com:path/to/public_html/"
+deploy_server="user@server.com:path/to/"
 rsync_options="-avz --delete --delete-excluded --exclude=.env.local --include=*.htaccess"
 backup_compression_options="-t7z -mx=9 -m0=LZMA2 -mmt=on"
 backup_date_format="+%d-%m-%Y"
