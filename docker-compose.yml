@@ -4,8 +4,8 @@ services:
     environment:
       MYSQL_USER: user
       MYSQL_PASSWORD: user
-      MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: example
+      MYSQL_ROOT_PASSWORD: root
     volumes:
       - ./data:/var/lib/mysql
     ports:

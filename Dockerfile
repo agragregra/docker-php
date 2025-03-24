@@ -43,11 +43,10 @@ RUN apt-get update && apt-get install -y openssl \
   </VirtualHost>" > /etc/apache2/sites-available/default-ssl.conf \
   && a2ensite default-ssl.conf
 
-RUN sed -ri -e 's!/var/www/html!/var/www/public_html!g' /etc/apache2/sites-available/*.conf
-RUN sed -ri -e 's!/var/www/html!/var/www/public_html!g' /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf
-RUN rm -rf /var/www/html && mkdir -p /var/www/public_html
-
-RUN apt-get clean && rm -rf /var/lib/apt/lists/*
+RUN sed -ri -e 's!/var/www/html!/var/www/public_html!g' /etc/apache2/sites-available/*.conf \
+  /etc/apache2/apache2.conf /etc/apache2/conf-available/*.conf \
+  && rm -rf /var/www/html \
+  && mkdir -p /var/www/public_html
 
 WORKDIR /var/www/public_html
 

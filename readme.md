@@ -1,5 +1,5 @@
 # Docker PHP MySQL phpMyAdmin
-A lightweight Docker Compose setup for running a PHP application with MySQL (MySQLi & PDO) and phpMyAdmin.
+Docker setup for running a PHP application with MySQL (MySQLi & PDO) and phpMyAdmin.
 
 ## Clone
 ```
@@ -14,7 +14,7 @@ git clone https://github.com/agragregra/dphp .; rm -rf trunk .gitignore .git
 - **Composer**.
 
 ## Server
-  - app: www/
+  - app: www
   - public: www/public_html
   - http: http://localhost:8000
   - https: https://localhost:8443
@@ -50,6 +50,11 @@ docker-compose exec -T db mysql -u root -proot example < backup.sql
 * remove all images & volumes:
 ```
 docker system prune -af --volumes
+```
+
+* ./run.sh args
+```
+Usage: ./run.sh { deploy | backup | clear }
 ```
 
 ## Troubleshooting NTFS /mnt Issues
