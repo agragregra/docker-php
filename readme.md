@@ -61,9 +61,9 @@ docker system prune -af --volumes
 ## Troubleshooting NTFS /mnt Issues
 If you encounter issues when using this setup with MySQL data stored on an NTFS partition (e.g., /mnt in WSL2), it may be due to permission or compatibility problems with the file system. Follow these steps to resolve them:
 
-1. Adding the automount block to wsl.conf
+1. Adding the [automount] block to wsl.conf
 ```
-echo -e "\n[automount]\noptions=\"metadata,umask=0022\"" | sudo tee -a /etc/wsl.conf
+grep -q "\[automount\]" /etc/wsl.conf || echo -e "\n[automount]\noptions=\"metadata,umask=0022\"" | sudo tee -a /etc/wsl.conf
 ```
 
 2. Then restart WSL:
