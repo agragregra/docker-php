@@ -35,6 +35,27 @@ check_deps() {
   fi
 }
 
+up() {
+  check_deps "docker-compose"
+  sudo chmod -R 777 .
+  docker-compose up -d
+}
+
+down() {
+  check_deps "docker-compose"
+  docker-compose down
+}
+
+bash() {
+  check_deps "docker-compose"
+  docker-compose exec web bash
+}
+
+prune() {
+  check_deps "docker"
+  docker system prune -af --volumes
+}
+
 deploy() {
   check_deps "rsync"
   echo "Running: rsync $rsync_options $output_dir $deploy_server"
@@ -62,11 +83,15 @@ clear() {
 # Handle arguments
 main() {
   case $1 in
-    "deploy")  deploy  ;;
-    "backup")  backup  ;;
-    "clear")   clear  ;;
+    "up")     up     ;;
+    "down")   down   ;;
+    "bash")   bash   ;;
+    "prune")  prune  ;;
+    "deploy") deploy ;;
+    "backup") backup ;;
+    "clear")  clear  ;;
     *)
-      echo "Usage: $0 { deploy | backup | clear }"
+      echo "Usage: $0 { up | down | bash | prune | deploy | backup | clear }"
       exit 1
       ;;
   esac

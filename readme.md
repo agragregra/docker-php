@@ -22,10 +22,16 @@ git clone https://github.com/agragregra/dphp .; rm -rf trunk .gitignore .git
 
 ## Service
 
+* ./run.sh args
+```
+chmod +x ./run.sh
+Usage: ./run.sh { up | down | bash | prune | deploy | backup | clear }
+```
+
 * docker up / down:
 ```
 # first
-sudo chmod -R 777 www && docker-compose up -d
+sudo chmod -R 777 . && docker-compose up -d
 
 docker-compose up -d
 docker-compose down
@@ -50,11 +56,6 @@ docker-compose exec -T db mysql -u root -proot example < backup.sql
 * remove all images & volumes:
 ```
 docker system prune -af --volumes
-```
-
-* ./run.sh args
-```
-Usage: ./run.sh { deploy | backup | clear }
 ```
 
 ## Troubleshooting NTFS /mnt Issues
