@@ -1,5 +1,5 @@
 # Docker PHP MySQL phpMyAdmin
-Docker setup for running a PHP application with MySQL (MySQLi & PDO) and phpMyAdmin.
+Docker configuration for running PHP application with MySQL (MySQLi/PDO) and phpMyAdmin.
 
 ## Clone
 ```
