@@ -43,14 +43,22 @@ docker-compose exec web bash
 exit
 ```
 
-* export db
-```
-docker-compose exec db mysqldump -u root -proot example > backup.sql
-```
-
 * import db
 ```
+# mariadb
+docker-compose exec -T db mariadb -u root -proot example < backup.sql
+
+# mysql
 docker-compose exec -T db mysql -u root -proot example < backup.sql
+```
+
+* export db
+```
+# mariadb
+docker-compose exec db mariadb-dump -u root -proot example > backup.sql
+
+# mysql
+docker-compose exec db mysqldump -u root -proot example > backup.sql
 ```
 
 * remove all images & volumes:
