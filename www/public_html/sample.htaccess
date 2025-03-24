@@ -1,0 +1,9 @@
+AddDefaultCharset UTF-8
+Options -Indexes
+
+RewriteEngine On
+
+RewriteCond %{HTTP:HTTPS} !=on [NC]
+RewriteCond %{SERVER_PORT} !=8000
+RewriteCond %{SERVER_PORT} !=8443
+RewriteRule ^(.*)$ https://%{SERVER_NAME}%{REQUEST_URI} [R=301,L]
