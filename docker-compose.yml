@@ -21,7 +21,8 @@ services:
   web:
     build: .
     volumes:
-      - ./www:/var/www/html
+      - ./www:/var/www/
       - ./system/:/root/
     ports:
       - 8000:80
+      - 8443:443
