@@ -8,7 +8,7 @@ git clone https://github.com/agragregra/dphp .; rm -rf trunk .gitignore .git
 
 ## Features
 - **PHP**: Stable PHP version.
-- **MySQL**: Stable MySQL version.
+- **MySQL**: Stable MySQL/MariaDB version.
 - **DB**: MySQLi & PDO.
 - **phpMyAdmin**: Stable version.
 - **Composer**.
