@@ -17,12 +17,12 @@ get_dir_name() {
 
 # Function to get current date (cross-platform)
 get_current_date() {
-  date $backup_date_format
+  date "$backup_date_format"
 }
 
 # Function to check dependencies
 check_deps() {
-  local deps=($@)
+  local deps=("$@")
   local missing=()
 
   for dep in "${deps[@]}"; do
@@ -30,7 +30,7 @@ check_deps() {
   done
 
   if [ ${#missing[@]} -ne 0 ]; then
-    echo "${missing[*]} is not installed"
+    echo "Missing dependencies: ${missing[*]}"
     exit 1
   fi
 }
@@ -46,25 +46,23 @@ unlock_all() {
   sudo chmod -R 777 .
 }
 
+# Docker functions
 up() {
   check_deps "docker-compose"
   unlock_all
   remove_mysql_socket
   docker-compose up -d
 }
-
 down() {
   check_deps "docker-compose"
   unlock_all
   remove_mysql_socket
   docker-compose down
 }
-
 bash() {
   check_deps "docker-compose"
   docker-compose exec web bash
 }
-
 prune() {
   check_deps "docker"
   docker system prune -af --volumes
@@ -72,8 +70,7 @@ prune() {
 
 deploy() {
   check_deps "rsync"
-  echo "Running: rsync $rsync_options $output_dir $deploy_server"
-  rsync $rsync_options $output_dir $deploy_server
+  rsync $rsync_options "$output_dir" "$deploy_server" || { echo "Deploy failed: rsync error"; exit 1; }
 }
 
 backup() {
@@ -82,7 +79,7 @@ backup() {
   local current_date=$(get_current_date)
   unlock_all
   remove_mysql_socket
-  sudo 7z a $backup_compression_options -x!$dir_name/node_modules ./$dir_name-$current_date.7z $(pwd)
+  sudo 7z a $backup_compression_options -x!"$dir_name/node_modules" "./$dir_name-$current_date.7z" "$(pwd)"
 }
 
 clear() {
