@@ -6,6 +6,13 @@ Docker configuration for running PHP application with MySQL (MySQLi/PDO) and php
 git clone https://github.com/agragregra/dphp .; rm -rf trunk .gitignore .git
 ```
 
+## Troubleshooting
+```
+chmod -R 777 .
+linux: sed -i 's/\r$//' run.sh
+macos: sed -i '' 's/\r$//' run.sh
+```
+
 ## Features
 - **PHP**: Stable PHP version.
 - **MySQL**: Stable MySQL/MariaDB version.
@@ -25,7 +32,7 @@ git clone https://github.com/agragregra/dphp .; rm -rf trunk .gitignore .git
 * ./run.sh args
 ```
 chmod +x ./run.sh
-Usage: ./run.sh { up | down | bash | prune | deploy | backup | clear }
+Usage: ./run.sh { backup | bash | clear | deploy | down | prune | up }
 ```
 
 * docker up / down:
