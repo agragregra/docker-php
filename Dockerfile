@@ -18,10 +18,13 @@ RUN apt-get update && apt-get install -y \
   && docker-php-ext-configure gd --with-freetype --with-jpeg --with-webp \
   && docker-php-ext-install -j$(nproc) ${EXT} \
   && a2enmod rewrite \
-  && php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
-  && php composer-setup.php --install-dir=/usr/local/bin --filename=composer \
-  && php -r "unlink('composer-setup.php');" \
   && apt-get clean && rm -rf /var/lib/apt/lists/*
+  # && php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
+  # && php composer-setup.php --install-dir=/usr/local/bin --filename=composer \
+  # && php -r "unlink('composer-setup.php');" \
+
+ADD https://github.com/composer/composer/releases/latest/download/composer.phar /usr/local/bin/composer
+RUN chmod +x /usr/local/bin/composer
 
 RUN apt-get update && apt-get install -y openssl \
   && a2enmod ssl \
