@@ -70,6 +70,7 @@ docker system prune -af --volumes
 chmod -R 777 .
 linux: sed -i 's/\r$//' run.sh
 macos: sed -i '' 's/\r$//' run.sh
+docker pull php:8.2-apache
 ```
 
 ## Troubleshooting NTFS /mnt Issues
