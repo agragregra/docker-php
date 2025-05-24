@@ -37,7 +37,7 @@ run_backup() {
   local current_date=$(date +%d-%m-%Y)
   unlock_all
   remove_mysql_socket
-  sudo 7z a $compression_options -x!"$dir_name/node_modules" "./$dir_name-$current_date.7z" "$(pwd)"
+  $(sudo_prefix) 7z a $compression_options -x!"$dir_name/node_modules" "./$dir_name-$current_date.7z" "$(pwd)"
 }
 run_deploy() {
   check_deps "rsync"
@@ -51,11 +51,11 @@ run_clear() {
 # Remove mysql socket and unlock all files
 remove_mysql_socket() {
   if [ -L "$(pwd)/data/mysql.sock" ]; then
-    sudo rm "$(pwd)/data/mysql.sock"
+    $(sudo_prefix) rm "$(pwd)/data/mysql.sock"
   fi
 }
 unlock_all() {
-  sudo chmod -R 777 .
+  $(sudo_prefix) chmod -R 777 .
 }
 
 # Main function
@@ -82,6 +82,11 @@ check_deps() {
     echo "Missing dependencies: ${missing[*]}"
     exit 1
   fi
+}
+
+# Sudo prefix
+sudo_prefix() {
+  command -v sudo &> /dev/null && echo "sudo" || echo ""
 }
 
 main $@

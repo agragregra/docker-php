@@ -3,14 +3,7 @@ Docker configuration for running PHP application with MySQL (MySQLi/PDO) and php
 
 ## Clone
 ```
-git clone https://github.com/agragregra/dphp . && rm -rf trunk .gitignore .git && chmod +x run.sh
-```
-
-## Troubleshooting
-```
-chmod -R 777 .
-linux: sed -i 's/\r$//' run.sh
-macos: sed -i '' 's/\r$//' run.sh
+git clone https://github.com/agragregra/docker-php . && rm -rf trunk .git readme.md && chmod +x run.sh
 ```
 
 ## Features
@@ -31,7 +24,6 @@ macos: sed -i '' 's/\r$//' run.sh
 
 * ./run.sh args
 ```
-chmod +x ./run.sh
 Usage: ./run.sh { backup | bash | clear | deploy | down | prune | up }
 ```
 
@@ -71,6 +63,13 @@ docker-compose exec db mysqldump -u root -proot example > backup.sql
 * remove all images & volumes:
 ```
 docker system prune -af --volumes
+```
+
+## Troubleshooting
+```
+chmod -R 777 .
+linux: sed -i 's/\r$//' run.sh
+macos: sed -i '' 's/\r$//' run.sh
 ```
 
 ## Troubleshooting NTFS /mnt Issues
